@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes as Switch,
+  Navigate,
+  Route,
+} from "react-router-dom";
 
 import "./App.css";
 // import { PrivateRoute } from "./components/private-route/PrivateRoute.comp";
@@ -13,34 +18,15 @@ import { Ticket } from "./page/ticket/Ticket.page";
 function App() {
   return (
     <div className="App">
-      <Entry />
-      <DefaultLayout>
-        <Dashboard />
-        <AddTicket />
-        <TicketLists />
-        <Ticket />
-      </DefaultLayout>
-      {/* <Router>
+      <Router>
         <Switch>
-          <Route exact path="/">
-            <Entry />
-          </Route>
-          <DefaultLayout>
-            <Route path="/dashboard">
-              <Dashboard />
-            </Route>
-            <Route path="/add-ticket">
-              <AddTicket />
-            </Route>
-            <Route path="/tickets">
-              <TicketLists />
-            </Route>
-            <Route path="/ticket/:tid">
-              <Ticket />
-            </Route>
-          </DefaultLayout>
+          <Route exact path="/" element={<Entry />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/addticket" element={<AddTicket />} />
+          <Route path="/tickets" element={<TicketLists />} />
+          <Route path="/ticket/:tid" element={<Ticket />} />
         </Switch>
-      </Router> */}
+      </Router>
     </div>
   );
 }
